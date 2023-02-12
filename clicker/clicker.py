@@ -1,9 +1,7 @@
 import tkinter as tk
 Level = 1
 Coins = 0
-HP = 5
-if HP <0:
-    hp = 0
+HP = 50
 
 root = tk.Tk()
 root.title("Bombclick")
@@ -29,16 +27,16 @@ def death():
     Level+=1
     if Level == 2:
         click_button.config(image=lvl_2)
-        HP = 10
+        HP = 100
     elif Level == 3:
         click_button.config(image=lvl_2)
-        HP = 15
+        HP = 150
     if Level == 4:
         click_button.config(image=lvl_2)
-        HP = 20
+        HP = 200
     elif Level == 5:
         click_button.config(image=lvl_2)
-        HP = 25
+        HP = 250
 
 
 
