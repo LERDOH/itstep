@@ -12,9 +12,9 @@ root.resizable(False, False)
 
 lvl_1 = tk.PhotoImage(file="lvl1.png")
 lvl_2 = tk.PhotoImage(file="lvl2.png")
-lvl_3 = tk.PhotoImage(file="lvl1.png")
-lvl_4 = tk.PhotoImage(file="lvl1.png")
-lvl_5 = tk.PhotoImage(file="lvl1.png")
+lvl_3 = tk.PhotoImage(file="lvl3.png")
+lvl_4 = tk.PhotoImage(file="lvl4.png")
+lvl_5 = tk.PhotoImage(file="lvl5.png")
 
 def update():
     Hp.config(text = f"HP: {HP}")
@@ -27,16 +27,16 @@ def death():
     Level+=1
     if Level == 2:
         click_button.config(image=lvl_2)
-        HP = 100
+        HP = 10
     elif Level == 3:
-        click_button.config(image=lvl_2)
-        HP = 150
+        click_button.config(image=lvl_3)
+        HP = 15
     if Level == 4:
-        click_button.config(image=lvl_2)
-        HP = 200
+        click_button.config(image=lvl_4)
+        HP = 20
     elif Level == 5:
-        click_button.config(image=lvl_2)
-        HP = 250
+        click_button.config(image=lvl_5)
+        HP = 25
 
 
 
