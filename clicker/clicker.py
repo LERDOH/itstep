@@ -11,9 +11,9 @@ AutoA = 0
 
 root = tk.Tk()
 root.title("Bombclick")
-root.geometry("600x800")
-root["bg"] = "grey"
-#root.iconbitmap("like.ico")
+root.geometry("600x825")
+root["bg"] = "white"
+root.iconbitmap("icon.ico")
 root.resizable(False, False)
 
 lvl_1 = tk.PhotoImage(file="lvl1.png")
@@ -36,16 +36,16 @@ def death():
     Level+=1
     if Level == 2:
         click_button.config(image=lvl_2)
-        HP = 10
+        HP = 100
     elif Level == 3:
         click_button.config(image=lvl_3)
-        HP = 15
+        HP = 150
     if Level == 4:
         click_button.config(image=lvl_4)
-        HP = 20
+        HP = 200
     elif Level == 5:
         click_button.config(image=lvl_5)
-        HP = 25
+        HP = 250
 def upgrade():
     global Up
     global Addcoins
@@ -102,22 +102,22 @@ def startAttack():
 
 
 
-title = tk.Button(root, image=Title, background="grey")
+title = tk.Button(root, image=Title, background="white", command=click)
 title.pack()
-coins = tk.Label(font = ("Arial", 14), text = f"Coins: {Coins}", fg="orange", background="grey")
+coins = tk.Label(font = ("Arial", 14), text = f"Coins: {Coins}", fg="orange", background="white")
 coins.pack()
-Lvl = tk.Label(font = ("Arial", 14), text = f"Level: {Level}", fg="orange", background="grey")
+Lvl = tk.Label(font = ("Arial", 14), text = f"Level: {Level}", fg="orange", background="white")
 Lvl.pack()
 
-click_button = tk.Button(root, image=lvl_1, background="grey", command=click) #command=click
+click_button = tk.Button(root, image=lvl_1, background="white", command=click) #command=click
 click_button.pack()
-upgrade_button = tk.Button(root, image=upgrade_b, background="grey", command=upgrade)
-upgrade_button.pack()
-Auto_button = tk.Button(root, image=Autoattack, background="grey", command=AutoAttack)
-Auto_button.pack()
 
-
-Hp = tk.Label(font = ("Arial", 14), text = f"HP: {HP}", fg="orange", background="grey")
+Hp = tk.Label(font = ("Arial", 14), text = f"HP: {HP}", fg="orange", background="white")
 Hp.pack()
+
+upgrade_button = tk.Button(root, image=upgrade_b, background="white", command=upgrade)
+upgrade_button.pack()
+Auto_button = tk.Button(root, image=Autoattack, background="white", command=AutoAttack)
+Auto_button.pack()
 
 root.mainloop()
