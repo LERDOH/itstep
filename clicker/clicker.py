@@ -104,15 +104,15 @@ def startAttack():
 
 title = tk.Button(root, image=Title, background="white", command=click)
 title.pack()
-coins = tk.Label(font = ("Arial", 14), text = f"Coins: {Coins}", fg="orange", background="white")
+coins = tk.Label(font = ("Arial", 19), text = f"Coins: {Coins}", fg="black", background="white")
 coins.pack()
-Lvl = tk.Label(font = ("Arial", 14), text = f"Level: {Level}", fg="orange", background="white")
+Lvl = tk.Label(font = ("Arial", 19), text = f"Level: {Level}", fg="black", background="white")
 Lvl.pack()
 
 click_button = tk.Button(root, image=lvl_1, background="white", command=click) #command=click
 click_button.pack()
 
-Hp = tk.Label(font = ("Arial", 14), text = f"HP: {HP}", fg="orange", background="white")
+Hp = tk.Label(font = ("Arial", 19), text = f"HP: {HP}", fg="black", background="white")
 Hp.pack()
 
 upgrade_button = tk.Button(root, image=upgrade_b, background="white", command=upgrade)
