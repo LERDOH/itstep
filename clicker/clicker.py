@@ -5,6 +5,7 @@ HP = 50
 Up = 0
 Addcoins = 1
 Attack = 1
+AutoA = 0
 
 root = tk.Tk()
 root.title("Bombclick")
@@ -19,6 +20,7 @@ lvl_3 = tk.PhotoImage(file="lvl3.png")
 lvl_4 = tk.PhotoImage(file="lvl4.png")
 lvl_5 = tk.PhotoImage(file="lvl5.png")
 upgrade_b = tk.PhotoImage(file="upgrade.png")
+Autoattack = tk.PhotoImage(file="AutoAttack.png")
 
 def update():
     Hp.config(text = f"HP: {HP}")
@@ -66,7 +68,14 @@ def click():
     Coins += Addcoins
 
 def AutoAttack():
-    print ("Auto")
+    global AutoA
+    global HP
+    if AutoA == 1:
+        None
+    elif Up == 0:
+        AutoA += 1
+
+
 
 title = tk.Label(font = ("Arial", 20, "bold"), text = "Bombclick", fg="green", background="white")
 title.pack()
@@ -79,7 +88,7 @@ click_button = tk.Button(root, image=lvl_1, background="grey", command=click) #c
 click_button.pack()
 upgrade_button = tk.Button(root, image=upgrade_b, background="grey", command=upgrade)
 upgrade_button.pack()
-Auto_button = tk.Button(root, image=upgrade_b, background="grey", command=AutoAttack)
+Auto_button = tk.Button(root, image=Autoattack, background="grey", command=AutoAttack)
 Auto_button.pack()
 
 
