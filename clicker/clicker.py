@@ -1,4 +1,6 @@
 import tkinter as tk
+from threading import Timer
+
 Level = 1
 Coins = 0
 HP = 50
@@ -21,6 +23,7 @@ lvl_4 = tk.PhotoImage(file="lvl4.png")
 lvl_5 = tk.PhotoImage(file="lvl5.png")
 upgrade_b = tk.PhotoImage(file="upgrade.png")
 Autoattack = tk.PhotoImage(file="AutoAttack.png")
+Title = tk.PhotoImage(file="Title.png")
 
 def update():
     Hp.config(text = f"HP: {HP}")
@@ -43,7 +46,6 @@ def death():
     elif Level == 5:
         click_button.config(image=lvl_5)
         HP = 25
-
 def upgrade():
     global Up
     global Addcoins
@@ -60,24 +62,47 @@ def upgrade():
 def click():
     global HP
     global Coins
+    global Addcoins
+    global Level
     HP-=Attack
     print(HP)
     if HP<=0:
         death()
+    if HP<0:
+        HP = 0
+        Addcoins = 0
+        Level = 5
     update()
     Coins += Addcoins
 
 def AutoAttack():
     global AutoA
     global HP
-    if AutoA == 1:
-        None
-    elif Up == 0:
+    if AutoA == 0:
         AutoA += 1
+    elif AutoA == 1:
+        startAttack()
+
+
+def startAttack():
+    global HP
+    global Attack
+    global Level
+    global Addcoins
+    global Coins
+    HP-=Attack
+    Coins += Addcoins
+    if HP < 0:
+        HP = 0
+        Addcoins = 0
+        Level = 5
+    print("123")
+    update()
+    Timer(2,startAttack).start()
 
 
 
-title = tk.Label(font = ("Arial", 20, "bold"), text = "Bombclick", fg="green", background="white")
+title = tk.Button(root, image=Title, background="grey")
 title.pack()
 coins = tk.Label(font = ("Arial", 14), text = f"Coins: {Coins}", fg="orange", background="grey")
 coins.pack()
