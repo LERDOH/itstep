@@ -2,6 +2,9 @@ import tkinter as tk
 Level = 1
 Coins = 0
 HP = 50
+Up = 0
+Addcoins = 1
+Attack = 1
 
 root = tk.Tk()
 root.title("Bombclick")
@@ -15,6 +18,7 @@ lvl_2 = tk.PhotoImage(file="lvl2.png")
 lvl_3 = tk.PhotoImage(file="lvl3.png")
 lvl_4 = tk.PhotoImage(file="lvl4.png")
 lvl_5 = tk.PhotoImage(file="lvl5.png")
+upgrade_b = tk.PhotoImage(file="upgrade.png")
 
 def update():
     Hp.config(text = f"HP: {HP}")
@@ -38,17 +42,31 @@ def death():
         click_button.config(image=lvl_5)
         HP = 25
 
+def upgrade():
+    global Up
+    global Addcoins
+    global Attack
+    if Up == 1:
+        None
+    elif Up == 0:
+        Up += 1
+        Addcoins += 4
+        Attack += 4
+        print(Up)
 
 
 def click():
     global HP
     global Coins
-    HP-=1
+    HP-=Attack
     print(HP)
     if HP<=0:
         death()
-    Coins+=1
     update()
+    Coins += Addcoins
+
+def AutoAttack():
+    print ("Auto")
 
 title = tk.Label(font = ("Arial", 20, "bold"), text = "Bombclick", fg="green", background="white")
 title.pack()
@@ -59,6 +77,11 @@ Lvl.pack()
 
 click_button = tk.Button(root, image=lvl_1, background="grey", command=click) #command=click
 click_button.pack()
+upgrade_button = tk.Button(root, image=upgrade_b, background="grey", command=upgrade)
+upgrade_button.pack()
+Auto_button = tk.Button(root, image=upgrade_b, background="grey", command=AutoAttack)
+Auto_button.pack()
+
 
 Hp = tk.Label(font = ("Arial", 14), text = f"HP: {HP}", fg="orange", background="grey")
 Hp.pack()
