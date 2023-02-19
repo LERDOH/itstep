@@ -16,11 +16,8 @@ root["bg"] = "white"
 root.iconbitmap("icon.ico")
 root.resizable(False, False)
 
-lvl_1 = tk.PhotoImage(file="lvl1.png")
-lvl_2 = tk.PhotoImage(file="lvl2.png")
-lvl_3 = tk.PhotoImage(file="lvl3.png")
-lvl_4 = tk.PhotoImage(file="lvl4.png")
-lvl_5 = tk.PhotoImage(file="lvl5.png")
+M_images = [tk.PhotoImage(file="lvl1.png"),tk.PhotoImage(file="lvl2.png"),tk.PhotoImage(file="lvl3.png"),tk.PhotoImage(file="lvl4.png"),tk.PhotoImage(file="lvl5.png")]
+
 upgrade_b = tk.PhotoImage(file="upgrade.png")
 Autoattack = tk.PhotoImage(file="AutoAttack.png")
 Title = tk.PhotoImage(file="Title.png")
@@ -34,18 +31,9 @@ def death():
     global Level
     global HP
     Level+=1
-    if Level == 2:
-        click_button.config(image=lvl_2)
-        HP = 100
-    elif Level == 3:
-        click_button.config(image=lvl_3)
-        HP = 150
-    if Level == 4:
-        click_button.config(image=lvl_4)
-        HP = 200
-    elif Level == 5:
-        click_button.config(image=lvl_5)
-        HP = 250
+    click_button.config(image=M_images[Level - 1])
+    HP = 50*Level
+    update()
 def upgrade():
     global Up
     global Addcoins
@@ -68,7 +56,7 @@ def click():
     print(HP)
     if HP<=0:
         death()
-    if HP<0:
+    elif HP<0:
         HP = 0
         Addcoins = 0
         Level = 5
@@ -109,7 +97,7 @@ coins.pack()
 Lvl = tk.Label(font = ("Arial", 19), text = f"Level: {Level}", fg="black", background="white")
 Lvl.pack()
 
-click_button = tk.Button(root, image=lvl_1, background="white", command=click) #command=click
+click_button = tk.Button(root, image=M_images[0], background="white", command=click) #command=click
 click_button.pack()
 
 Hp = tk.Label(font = ("Arial", 19), text = f"HP: {HP}", fg="black", background="white")
