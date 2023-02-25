@@ -31,7 +31,7 @@ def death():
     global Level
     global HP
     Level+=1
-    click_button.config(image=M_images[Level - 1])
+    click_button.config(image=M_images[Level-1])
     HP = 50*Level
     update()
 def upgrade():
@@ -53,10 +53,9 @@ def click():
     global Addcoins
     global Level
     HP-=Attack
-    print(HP)
     if HP<=0:
         death()
-    elif HP<0:
+    if HP<0:
         HP = 0
         Addcoins = 0
         Level = 5
@@ -66,10 +65,16 @@ def click():
 def AutoAttack():
     global AutoA
     global HP
+    global Coins
     if AutoA == 0:
-        AutoA += 1
+        if Coins >= 30:
+            Coins -= 30
+            AutoA += 1
+            startAttack()
+        elif Coins <= 30:
+            None
     elif AutoA == 1:
-        startAttack()
+        None
 
 
 def startAttack():
@@ -80,13 +85,10 @@ def startAttack():
     global Coins
     HP-=Attack
     Coins += Addcoins
-    if HP < 0:
-        HP = 0
-        Addcoins = 0
-        Level = 5
-    print("123")
+    if HP <= 0:
+        death()
     update()
-    Timer(2,startAttack).start()
+    Timer(0.5, startAttack).start()
 
 
 
