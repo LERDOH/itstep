@@ -59,10 +59,8 @@ font = pygame.font.Font(None, 24)
 text = font.render(coins_text, True, (255,255,255))
 screen.blit(text, (SCREEN_WIDTH//2+50, 25))
 
-house1_Label = font.render(f"Кол-во: \n"Сумма добычи \n" f"Cтоимость:", True, (255,255,255))
-screen.blit(house1_Label, (button_rect1.x+110, button_rect1.y))
 
-afzxczxczvbhfhdlkfh
+
 running = True
 while running:
     for event in pygame.event.get():
