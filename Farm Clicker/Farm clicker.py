@@ -132,14 +132,15 @@ UFO_Moving()
 def UFO_TRAN2():
     global alpha
     alpha = 255
+    Timer(20, UFO_TRAN).start()
     ufo.set_alpha(alpha)
 def UFO_TRAN():
     global alpha
     alpha = 0
     ufo.set_alpha(alpha)
-    Timer(10, UFO_TRAN2).start()
+    Timer(30, UFO_TRAN2).start()
 
-
+UFO_TRAN()
 
 running = True
 while running:
@@ -154,9 +155,9 @@ while running:
                     house1_count += 1
                     house1_earnings += 1
                     house1_curprice += 10
-                    house1_label = font.render(f"Кол-во: {house1_count}", True, (255,255,255))
-                    house1_cost = font.render(f"Стоимость: {house1_curprice} ", True, (255, 255, 255))
-                    house1_earn = font.render(f"Сумма добычи: {house1_earnings}", True, (255, 255, 255))
+                    house1_label = font.render(f"Amount: {house1_count}", True, (255,255,255))
+                    house1_cost = font.render(f"Price: {house1_curprice} ", True, (255, 255, 255))
+                    house1_earn = font.render(f"Earnings: {house1_earnings}", True, (255, 255, 255))
                     text = font.render(f" = {money}", True, (255,255,255))
                     #update_all()
             elif button_rect2.collidepoint(event.pos):
@@ -166,9 +167,9 @@ while running:
                     house2_count += 1
                     house2_earnings += 5
                     house2_curprice += 50
-                    house2_label = font.render(f"Кол-во: {house2_count}", True, (255, 255, 255))
-                    house2_cost = font.render(f"Стоимость: {house2_curprice} ", True, (255, 255, 255))
-                    house2_earn = font.render(f"Сумма добычи: {house2_earnings}", True, (255, 255, 255))
+                    house2_label = font.render(f"Amount: {house2_count}", True, (255, 255, 255))
+                    house2_cost = font.render(f"Price: {house2_curprice} ", True, (255, 255, 255))
+                    house2_earn = font.render(f"Earnings: {house2_earnings}", True, (255, 255, 255))
                     text = font.render(f" = {money}", True, (255,255,255))
                     #update_all()
             elif button_rect3.collidepoint(event.pos):
@@ -178,9 +179,9 @@ while running:
                     house3_count += 1
                     house3_earnings += 15
                     house3_curprice += 250
-                    house3_label = font.render(f"Кол-во: {house3_count}", True, (255, 255, 255))
-                    house3_cost = font.render(f"Стоимость: {house3_curprice} ", True, (255, 255, 255))
-                    house3_earn = font.render(f"Сумма добычи: {house3_earnings}", True, (255, 255, 255))
+                    house3_label = font.render(f"Amount: {house3_count}", True, (255, 255, 255))
+                    house3_cost = font.render(f"Price: {house3_curprice} ", True, (255, 255, 255))
+                    house3_earn = font.render(f"Earnings: {house3_earnings}", True, (255, 255, 255))
                     text = font.render(f" = {money}", True, (255,255,255))
                     #update_all()
             elif button_rect4.collidepoint(event.pos):
@@ -190,9 +191,9 @@ while running:
                     house4_count += 1
                     house4_earnings += 50
                     house4_curprice += 500
-                    house4_label = font.render(f"Кол-во: {house4_count}", True, (255, 255, 255))
-                    house4_cost = font.render(f"Стоимость: {house4_curprice} ", True, (255, 255, 255))
-                    house4_earn = font.render(f"Сумма добычи: {house4_earnings}", True, (255, 255, 255))
+                    house4_label = font.render(f"Amount: {house4_count}", True, (255, 255, 255))
+                    house4_cost = font.render(f"Price: {house4_curprice} ", True, (255, 255, 255))
+                    house4_earn = font.render(f"Earnings: {house4_earnings}", True, (255, 255, 255))
                     text = font.render(f" = {money}", True, (255,255,255))
                     #update_all()
             elif button_rect5.collidepoint(event.pos):
@@ -202,9 +203,9 @@ while running:
                     house5_count += 1
                     house5_earnings += 100
                     house5_curprice += 1000
-                    house5_label = font.render(f"Кол-во: {house5_count}", True, (255, 255, 255))
-                    house5_cost = font.render(f"Стоимость: {house5_curprice} ", True, (255, 255, 255))
-                    house5_earn = font.render(f"Сумма добычи: {house5_earnings}", True, (255, 255, 255))
+                    house5_label = font.render(f"Amount: {house5_count}", True, (255, 255, 255))
+                    house5_cost = font.render(f"Price: {house5_curprice} ", True, (255, 255, 255))
+                    house5_earn = font.render(f"Earnings: {house5_earnings}", True, (255, 255, 255))
                     text = font.render(f" = {money}", True, (255,255,255))
                     #update_all()
             elif button_rect6.collidepoint(event.pos):
