@@ -5,7 +5,7 @@ from threading import Timer
 pygame.init()
 
 size = (800,560)
-
+x = 1
 money = 50
 house1_count = 0
 house1_earnings = 0
@@ -32,8 +32,9 @@ SCREEN_HEIGHT = 560
 FPS = 60
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Простой кликер")
+pygame.display.set_caption("Ультрамегасупер кликер")
 bg = pygame.image.load("BG.png")
+pygame.display.set_icon(pygame.image.load("icon.png"))
 bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
 screen.blit(bg, (0, 0))
 
@@ -58,8 +59,8 @@ image2 = pygame.transform.scale(image2, (BUTTON_WIDTH, BUTTON_HEIGHT))
 image3 = pygame.transform.scale(image3, (BUTTON_WIDTH, BUTTON_HEIGHT))
 image4 = pygame.transform.scale(image4, (BUTTON_WIDTH, BUTTON_HEIGHT))
 image5 = pygame.transform.scale(image5, (BUTTON_WIDTH, BUTTON_HEIGHT))
-cow = pygame.transform.scale(cow, (BUTTON_WIDTH, 250))
-ufo = pygame.transform.scale(ufo, (50, 50))
+cow = pygame.transform.scale(cow, (BUTTON_WIDTH+20, 270))
+ufo = pygame.transform.scale(ufo, (150, 150))
 alpha = 255
 coin_image = pygame.transform.scale(coin_image, (50, 50))
 
@@ -69,7 +70,7 @@ button_rect3 = pygame.Rect(10, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect4 = pygame.Rect(10, 340, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect5 = pygame.Rect(10, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect6 = pygame.Rect(460, 300, 25, 25)
-button_rect7 = pygame.Rect(UFO_POSITION, 100, 25, 25)
+button_rect7 = pygame.Rect(UFO_POSITION, 100, 150, 150)
 font = pygame.font.Font("Minecraft.ttf", 18)
 text = font.render(f"  = {money}", True, (255,255,255))
 
@@ -100,17 +101,17 @@ house5_cost = font.render(f"Price: {house5_curprice}", True,(255,255,255))
 house5_earn = font.render(f"Earnings: {house5_earnings}", True, (255,255,255))
 
 
-
-#update_all()
 def autoclick ():
     global money
     global text
-    money += house5_earnings + house2_earnings + house3_earnings + house4_earnings + house1_earnings
+    earnings = house5_earnings + house2_earnings + house3_earnings + house4_earnings + house1_earnings
+    money += earnings
     text = font.render(f" = {money}", True, (200, 200, 200))
-    #update_all()
-    Timer(0.5, autoclick).start()
+    Timer(1, autoclick).start()
 
 autoclick()
+
+
 def UFO_Moving():
         global UFO_POSITION, UFO_MOVING_LEFT, button_rect7
         if UFO_POSITION <= 400:
@@ -138,7 +139,7 @@ def UFO_TRAN():
     global alpha
     alpha = 0
     ufo.set_alpha(alpha)
-    Timer(30, UFO_TRAN2).start()
+    Timer(3, UFO_TRAN2).start()
 
 UFO_TRAN()
 
@@ -216,6 +217,7 @@ while running:
                 print("Нло нажат!")
                 UFO_TRAN()
                 money += 10
+                x()
                 #update_all()
 
     screen.blit(bg, (0, 0))
